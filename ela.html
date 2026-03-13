@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Para você ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(270deg,#6a00ff,#8e2de2,#a044ff,#6a00ff);
+background-size:600% 600%;
+animation:fundo 10s infinite;
+font-family:'Poppins',sans-serif;
+color:white;
+text-align:center;
+}
+
+@keyframes fundo{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+max-width:600px;
+}
+
+h1{
+font-size:40px;
+font-weight:700;
+}
+
+button{
+margin-top:40px;
+padding:14px 40px;
+font-size:18px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+background:white;
+color:#333;
+font-weight:600;
+transition:0.3s;
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+.hidden{
+display:none;
+}
+
+#contador{
+font-size:70px;
+font-weight:700;
+}
+
+.teamo{
+font-size:32px;
+font-weight:700;
+margin-top:20px;
+animation:brilho 2s infinite;
+}
+
+@keyframes brilho{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="inicio">
+<h1>Preparada?</h1>
+<button onclick="iniciar()">Iniciar</button>
+</div>
+
+<div id="contagem" class="hidden">
+<div id="contador">3</div>
+</div>
+
+<div id="pagina1" class="hidden">
+<h1>quero que saiba..</h1>
+<p>Você é uma pessoa muito especial linda e maravilhosa.</p>
+<button onclick="proximo()">Prosseguir</button>
+</div>
+
+<div id="pagina2" class="hidden">
+<h1>Mais uma coisa...</h1>
+<p>Seu jeito faz tudo ficar melhor.</p>
+<button onclick="final()">Final</button>
+</div>
+
+<div id="pagina3" class="hidden">
+<h1>Final</h1>
+<p>so quero que lembre disso</p>
+
+<div class="teamo">
+eu te amo ❤️
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function iniciar(){
+
+document.getElementById("inicio").classList.add("hidden")
+document.getElementById("contagem").classList.remove("hidden")
+
+let numero=3
+
+let intervalo=setInterval(()=>{
+
+numero--
+
+document.getElementById("contador").innerText=numero
+
+if(numero==0){
+clearInterval(intervalo)
+
+document.getElementById("contagem").classList.add("hidden")
+document.getElementById("pagina1").classList.remove("hidden")
+}
+
+},1000)
+
+}
+
+function proximo(){
+document.getElementById("pagina1").classList.add("hidden")
+document.getElementById("pagina2").classList.remove("hidden")
+}
+
+function final(){
+document.getElementById("pagina2").classList.add("hidden")
+document.getElementById("pagina3").classList.remove("hidden")
+}
+
+</script>
+
+</body>
+</html>
